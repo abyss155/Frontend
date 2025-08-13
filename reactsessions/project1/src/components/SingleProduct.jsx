@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import ProductCard from './ProductCard';
+import axios from 'axios';
 
 const SingleProduct = () => {
 
@@ -27,8 +29,12 @@ const SingleProduct = () => {
       }
 
   return (
-    <div>SingleProduct</div>
-  )
+      <>
+        {
+            product ? ( <ProductCard product ={product} />) : ( <div className="text-center mt-5"> Loading product details...</div> )
+         }
+      </>
+  );
 }
 
-export default SingleProduct
+export default SingleProduct; 
