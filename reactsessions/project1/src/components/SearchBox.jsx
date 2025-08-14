@@ -1,8 +1,10 @@
 import React from 'react'
 
-const SearchBox = () => {
+const SearchBox = ({handleChange}) => {
   return (
-    <div>SearchBox</div>
+    <>
+        <input type="text" onChange={handleChange}/>
+    </>
   )
 }
 
