@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ProductCard from './ProductCard';
 import axios from 'axios';
+
 
 const SingleProduct = () => {
 
@@ -17,7 +18,7 @@ const SingleProduct = () => {
       async function loadDataFromFakeStoreServer()
       {
             try{
-                  const rawData= await axios.get(`https://fakestoreapi.com/products/${id}`)
+                  const rawData= await axios.get(`http://localhost:8087/products/${id}`)
                   console.log(rawData)
                   setProduct(rawData.data)
                   console.log(product)

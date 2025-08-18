@@ -1,32 +1,15 @@
-import React, { useEffect,useState}from 'react'
-
-import axios from 'axios';
+import React, {useContext, useEffect, useState}from 'react'
 import ProductCard from './ProductCard';
 import CategoryBar from './CategoryBar';
 import SearchBox from './SearchBox';
+import ProductContext from '../context/ProductContext';
 const ProductsPage2 = () => {
 
-      useEffect(
-            ()=>{
-                  loadDataFromFakeStoreServer()
-            },[]      //dependency Array
-      )
+      const {products} = useContext(ProductContext)
 
-      async function loadDataFromFakeStoreServer()
-      {
-            try{
-                  const rawData= await axios.get('https://fakestoreapi.com/products')
-                  console.log(rawData)
-                  setMyproducts(rawData.data)
-            }
-            catch(error)
-            {
-                  console.log(error)
-            }
-      }
-      
-      const[myproducts,setMyproducts] =useState([])
-      const[buproducts,setBuproducts] =useState([])
+      console.log(products)
+      const[myproducts,setMyproducts] =useState(products)
+      const[buproducts,setBuproducts] =useState(products)
             console.log(myproducts)
       
       const productCategories= myproducts.map(

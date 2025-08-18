@@ -13,22 +13,24 @@ import ProductsPage2 from './components/ProductsPage2.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx'
 import SingleProduct from './components/SingleProduct.jsx'
-
+import ProductContextProvider from "./context/ProductContextProvider";
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <ProductContextProvider>
       <Router>
           <Navbar/>
           <Routes>
               <Route path="/" element={<Homepage/>}/>
               <Route path="/products" element={<ProductsPage2/>}/>
+              <Route path="/counter" element={<Counter/>}/>
               <Route path="/single/:id" element={<SingleProduct/>}/>
+              <Route path="/test" element={<Test/>}/>
           </Routes>
       </Router>
-    </>
+    </ProductContextProvider>
   ) 
 }
 
