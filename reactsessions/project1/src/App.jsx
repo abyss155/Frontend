@@ -10,6 +10,7 @@ import Homepage from './components/Homepage'
 import ProductsPage from './components/ProductsPage';
 import ProductsPage1 from './components/ProductsPage1.jsx'
 import ProductsPage2 from './components/ProductsPage2.jsx'
+import Addproduct from './components/Addproduct'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx'
 import SingleProduct from './components/SingleProduct.jsx'
@@ -28,6 +29,7 @@ function App() {
               <Route path="/counter" element={<Counter/>}/>
               <Route path="/single/:id" element={<SingleProduct/>}/>
               <Route path="/test" element={<Test/>}/>
+              <Route path="/addproduct"  element={<Addproduct/>} />
           </Routes>
       </Router>
     </ProductContextProvider>

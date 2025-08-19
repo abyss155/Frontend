@@ -1,39 +1,39 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import ProductCard from './ProductCard';
 import axios from 'axios';
+import ProductContext from '../context/ProductContext';
 
 
 const SingleProduct = () => {
 
       const {id } =useParams();
-      const [product ,setProduct]=useState()
+      const {products}=useContext(ProductContext);
 
-      useEffect(
-            ()=>{
-                  loadDataFromFakeStoreServer()
-            },[]      //dependency Array
-      )
-
-      async function loadDataFromFakeStoreServer()
-      {
-            try{
-                  const rawData= await axios.get(`http://localhost:8087/products/${id}`)
-                  console.log(rawData)
-                  setProduct(rawData.data)
-                  console.log(product)
+      const[product, setProduct] = useState(null);// null by default
+      
+      useEffect(() => {
+            if (products && products.length > 0) {
+              const foundProduct = products.find((prod) => prod.id === parseInt(id));
+              setProduct(foundProduct);
             }
-            catch(error)
-            {
-                  console.log(error)
-            }
-      }
+          }, [id]); // re-run when products or id changes
+      
 
   return (
       <>
-        {
-            product ? ( <ProductCard product ={product} />) : ( <div className="text-center mt-5"> Loading product details...</div> )
-         }
+         {
+        product ? (
+          <>
+          {/* <Breadcrumbs product={product} /> */}
+          <ProductCard product={product} /> 
+          </>   
+        ) 
+        : 
+        (
+          <div className="text-center mt-5">Loading product details...</div>
+        )
+      }
       </>
   );
 }

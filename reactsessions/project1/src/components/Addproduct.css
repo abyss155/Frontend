@@ -1,0 +1,76 @@
+/* Center the form in the page */
+.container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh; /* push to vertical center */
+    }
+    
+    /* Style the form */
+    .form-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px; /* keeps it from stretching too much */
+    }
+    
+    /* Labels */
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: inline-block;
+      color: #333;
+    }
+    
+    /* Inputs */
+    .form-control {
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 5px rgba(13, 110, 253, 0.4);
+      outline: none;
+    }
+    
+    /* Error messages */
+    .text-danger {
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+    
+    /* Buttons */
+    .btn {
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: 500;
+    }
+    
+    .btn-primary {
+      background-color: #0d6efd;
+      border: none;
+    }
+    
+    .btn-primary:hover {
+      background-color: #0b5ed7;
+    }
+    
+    .btn-secondary {
+      background-color: #6c757d;
+      border: none;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #5c636a;
+    }
+    
+    /* Space between fields */
+    .col-md-4, .col-md-12, .col-md-6 {
+      margin-bottom: 20px;
+    }
+    

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from './Button'
+import './Counter.css'
 const Counter = () => {
 
       const [count,setCount] = useState(0)
@@ -30,19 +31,23 @@ const Counter = () => {
             setCount(count-2) 
       }
   return (
-    <>
+      <>
     {/* <button  onClick={increment}>Increment</button>
     <button  onClick={decrement}>Decrement</button>
     <button  onClick={incrementBy2}>IncrementBy2</button>
     <button  onClick={decrementBy2}>decrementBy2</button> */}
 
 
-    <Button text="Increment" handleClick={increment} color='red' count={count}/>
-    <Button text="Decrement" handleClick={decrement} color='blue'/>
-    <Button text="IncrementBy2" handleClick={incrementBy2} color='green'/>
-    <Button text="DecrementBy2" handleClick={decrementBy2} color='yellow'/>
-    <p>{count}</p>
-    </>
+   <div className="counter-container">
+     <div className="button-group">
+      <Button text="Increment" handleClick={increment} color="red" />
+      <Button text="Decrement" handleClick={decrement} color="blue" />
+      <Button text="IncrementBy2" handleClick={incrementBy2} color="green" />
+      <Button text="DecrementBy2" handleClick={decrementBy2} color="yellow" />
+     </div>
+    <p className="counter-value">{count}</p>
+  </div>
+  </>
   )
 }
 
